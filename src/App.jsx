@@ -1,4 +1,3 @@
-require('dotenv').config()
 import {
   GlobalStyle,
   StyledBody,
@@ -23,7 +22,7 @@ import AllRepos from './Components/AllRepos/AllRepos'
 
 export default function App() {
   const backgroundSrc = 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1502190/ab689603a427930cb69d5ad4db5c255ccd334133.mp4'
-  const github_api_key = process.env.GITHUB_API_KEY
+  const github_api_key = import.meta.env.VITE_GITHUB_API_KEY
 
   const [userInfo, setUserInfo] = useState({})
   const [userRepos, setUserRepos] = useState({})
