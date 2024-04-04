@@ -86,6 +86,7 @@ export default function App() {
         })
       } catch (error) {
         setError(true)
+        console.log(import.meta.env)
         console.error('Error fetching data:', error)
       }
       setLoading(false)
