@@ -19,7 +19,7 @@ export default function RecentRepos({ userRepos }){
         </StyledLabelItem>
         
         {
-            repos.map(repo => <RecentRepoContainer onClick={()=>goTo(`https://github.com/luciano655dev/${repo.name}`)}>
+            repos.map(repo => <RecentRepoContainer onClick={()=>goTo(`https://github.com/luciano655dev/${repo.name}`)} key={repo.id}>
                 <a href={`https://github.com/luciano655dev/${repo.name}`} target="_blank">{repo.name}</a>
                 <h2>{repo.description}</h2>
     

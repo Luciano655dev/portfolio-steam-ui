@@ -11,7 +11,7 @@ export default function AllRepos({ userRepos }){
 
       {
         repos.map(repo=>
-          <a href={`https://github.com/luciano655dev/${repo.name}`} target="_blank">{repo.name}</a>
+          <a key={repo.id} href={`https://github.com/luciano655dev/${repo.name}`} target="_blank">{repo.name}</a>
         )
       }
     </RightContentTexts>
