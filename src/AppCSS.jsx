@@ -12,7 +12,6 @@ export const GlobalStyle = createGlobalStyle`
 
 export const StyledBody = styled.div`
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -43,6 +42,10 @@ export const MainContainer = styled.div`
     opacity: 98%;
 
     overflow: hidden;
+
+    @media (max-width: 910px) {
+        flex-direction: column;
+    }
 `
 
 export const LeftSide = styled.div`

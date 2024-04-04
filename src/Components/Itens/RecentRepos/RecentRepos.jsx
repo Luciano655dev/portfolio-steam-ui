@@ -36,7 +36,7 @@ export default function RecentRepos({ userRepos }){
                     <h2>Commits</h2>
                     </div>
                     <div>
-                    <h1>{repo.lastUpdate} h</h1>
+                    <h1>{repo.lastUpdate}h</h1>
                     <h2>last updated</h2>
                     </div>
                 </RecentRepoInfoContainer>

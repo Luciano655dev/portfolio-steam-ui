@@ -80,14 +80,6 @@ export default function App() {
           totalCommits,
           language: languagePercentageArray[0]
         })
-  
-        console.log({
-          user: userResponse.data,
-          repos: reposResponse.data,
-          totalStars,
-          totalCommits,
-          language: languagePercentageArray[0]
-        })
       } catch (error) {
         console.error('Error fetching data:', error)
       }

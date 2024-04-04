@@ -20,6 +20,10 @@ export const LevelContainer = styled.div`
             font-size: 18px;
         }
     }
+
+    @media only screen and (max-width: 910px) {
+        transform: translateX(1em);
+    }
 `
 
 export const BadgeContainer = styled.div`
@@ -54,6 +58,10 @@ export const BadgeContainer = styled.div`
             margin: 0;
             font-size: 0.8em;
         }
+    }
+
+    @media only screen and (max-width: 910px) {
+        width: calc(90vw+1em);
     }
 `
 

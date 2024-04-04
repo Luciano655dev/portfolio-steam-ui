@@ -37,7 +37,7 @@ export const RecentRepoContainer = styled.div`
 
     label {
         position: absolute;
-        top: 1.3em; /* Adicionado */
+        top: 1.3em;
         right: 1em;
 
         color: white;

@@ -7,6 +7,10 @@ export const RightContentContainer = styled.div`
     transform: translateX(-1em);
 
     background-color: rgba(0, 0, 0, 0.5);
+
+    @media only screen and (max-width: 768px) {
+        transform: translateX(0);
+    }
 `
 
 export const RightContentTexts = styled.div`
@@ -43,5 +47,9 @@ export const RightContentTexts = styled.div`
         &:hover{
             color: gray;
         }
+    }
+
+    @media only screen and (max-width: 768px) {
+        transform: translateX(2em);
     }
 `

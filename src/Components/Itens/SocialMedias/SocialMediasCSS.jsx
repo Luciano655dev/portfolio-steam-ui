@@ -1,9 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledSkillsImages = styled.div`
-    display: flex;
-    flex-direction: column;
-
     div {
         display: flex;
         flex-direction: column;
@@ -28,20 +25,48 @@ export const StyledSkillsImages = styled.div`
             }
         }
 
-        h1 {
-            font-size: 2em;
-            margin-bottom: 0;
-            margin-top: 0;
-            margin-left: 0.5em;
-            color: white;
-        }
+        .textContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            margin: 1em;
 
-        h2{
-            font-size: 1em;
-            font-weight: 100;
-            margin: 0;
-            margin-left: 1em;
-            color: gray;
+            h1 {
+                font-size: 2em;
+                color: white;
+                margin: 0;
+            }
+
+            h2{
+                font-size: 1em;
+                font-weight: 100;
+                color: gray;
+                margin: 0;
+            }
         }
     }
-`
+
+    @media only screen and (max-width: 768px) {
+        div {
+            flex-direction: column;
+            align-items: center;
+
+            div {
+                flex-direction: row;
+                align-items: center;
+
+                img {
+                    max-width: 15vw;
+                    max-height: 15vw;
+                    margin: 1vw;
+                }
+            }
+
+            .textContainer {
+                width: 80vw;
+                align-items: start;
+                justify-content: start;
+            }
+        }
+    }
+`;

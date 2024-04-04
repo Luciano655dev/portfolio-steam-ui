@@ -26,6 +26,12 @@ export const SocialMediaImagesContainer = styled.div`
         height: 4em;
         margin: 0.7em;
 
+        @media (max-width: 768px) {
+            width: 10vw;
+            height: 10vw;
+            margin: 1vw;
+        }
+
         &:hover {
             cursor: pointer;
         }
@@ -42,6 +48,12 @@ export const SocialMediaImagesContainer = styled.div`
         max-height: 4em;
 
         transition: 0.3s;
+
+        @media (max-width: 768px) {
+            max-width: 10vw;
+            max-height: 10vw;
+            margin: 1vw;
+        }
 
         &:hover {
             cursor: pointer;
@@ -70,6 +82,11 @@ export const GithubInfoContainer = styled.div`
             margin-top: 0;
             margin-left: 0.5em;
             color: white;
+
+            @media (max-width: 768px) {
+                font-size: 5vw;
+                margin-left: 1vw;
+            }
         }
 
         h2{
@@ -78,6 +95,11 @@ export const GithubInfoContainer = styled.div`
             margin: 0;
             margin-left: 1.1em;
             color: gray;
+
+            @media (max-width: 768px) {
+                font-size: 2vw;
+                margin-left: 1.1vw;
+            }
         }
     }
 `

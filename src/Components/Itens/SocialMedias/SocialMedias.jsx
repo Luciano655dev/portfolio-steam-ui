@@ -35,8 +35,11 @@ export default function SocialMedias(){
                     onClick={()=>goTo('https://tabnews.com.br/luciano655')}
                 ></img>
                 </div>
-                <h1>5</h1>
-                <h2>Formas de me conhecer</h2>
+
+                <div className="textContainer">
+                    <h1>5</h1>
+                    <h2>Formas de me conhecer</h2>
+                </div>
             </div>
         </StyledSkillsImages>
     </ItemContainer>

@@ -30,4 +30,8 @@ export const ItemContainer = styled.div`
     background-color: rgba(0, 0, 0, 0.3);
 
     overflow: hidden;
+
+    @media only screen and (max-width: 768px) {
+        min-height: 20vh;
+    }
 `
