@@ -22,7 +22,7 @@ import AllRepos from './Components/AllRepos/AllRepos'
 
 import Footer from './Components/Footer/Footer'
 
-const github_api_key = import.meta.env.VITE_GITHUB_API_KEY || import.meta.env.GITHUB_API_KEY 
+const github_api_key = import.meta.env.VITE_GITHUB_API_KEY || import.meta.env.GITHUB_API_KEY
 
 export default function App() {
   const backgroundSrc = 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1502190/ab689603a427930cb69d5ad4db5c255ccd334133.mp4'
@@ -42,44 +42,41 @@ export default function App() {
           headers: { Authorization: `Bearer ${github_api_key}` }
         })
         setUserInfo(userResponse.data)
-  
+
         // Busca os repositórios públicos do usuário
         const reposResponse = await axios.get('https://api.github.com/users/luciano655dev/repos?sort=updated', {
           headers: { Authorization: `Bearer ${github_api_key}` },
           params: { type: 'public' } // Adiciona o parâmetro type=public
         })
         const repos = reposResponse.data
-  
-        // Calcula o total de estrelas recebidas
-        const totalStars = reposResponse.data.reduce((acc, repo) => acc + repo.stargazers_count, 0)
-  
+
         // Busca os commits de todos os repositórios do usuário
-        const commitsPromises = reposResponse.data.map(async (repo, index) => {
-          const commitsResponse = await axios.get(`https://api.github.com/repos/luciano655dev/${repo.name}/commits`, {
-            headers: { Authorization: `Bearer ${github_api_key}` }
-          })
-          repos[index] = {...repos[index], commits: commitsResponse.data.length}
-          return commitsResponse.data.length
+        const commitsResponse = await axios.get(`https://api.github.com/search/commits?q=${encodeURIComponent(`author:${'luciano655dev'} is:merge`)}`, {
+          Authorization: `token ${github_api_key}`,
+          Accept: 'application/vnd.github.cloak-preview'
         })
-        let totalCommits = await Promise.all(commitsPromises)
-        totalCommits = totalCommits.reduce((acc, val)=>acc + val)
-  
+
+        const totalCommits = commitsResponse.data.total_count
+
+        // Calcula o total de estrelas recebidas
+        const totalStars = repos.reduce((acc, repo) => acc + repo.stargazers_count, 0)
+
         // Calcula a porcentagem da linguagem mais usada
-        const languages = reposResponse.data.reduce((acc, repo) => {
+        const languages = repos.reduce((acc, repo) => {
           if (repo.language) {
             acc[repo.language] = acc[repo.language] ? acc[repo.language] + 1 : 1
           }
           return acc
         }, {})
-        const totalRepos = reposResponse.data.length
+        const totalRepos = repos.length
         const languagePercentageArray = []
         for (const language in languages) {
           const percentage = ((languages[language] / totalRepos) * 100).toFixed(2)
           languagePercentageArray.push({ name: language, percentage: `${percentage}%` })
         }
-  
+
         setUserRepos({
-          repos: reposResponse.data,
+          repos,
           totalStars,
           totalCommits,
           language: languagePercentageArray[0]
@@ -90,7 +87,7 @@ export default function App() {
       }
       setLoading(false)
     }
-  
+
     fetchData()
   }, [window.location.href])
 

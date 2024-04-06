@@ -14,7 +14,7 @@ export default function WhoAmI(){
             <p>
                 Meu nome é Luciano Menezes. <br></br>
                 <br></br>
-                Sou de João Pessoa, Paraíba e estudo progração há 3 anos. <br></br>
+                Sou de João Pessoa, Paraíba e estudo programação há 3 anos. <br></br>
                 <br></br>
                 Já trabalhei como Freelancer com desenvolvimento de jogos na Unity e tenho experiência em desenvolvimento de software, além de ser voltado para isso. <br></br>
                 <br></br>

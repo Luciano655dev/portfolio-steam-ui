@@ -1,17 +1,61 @@
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import { ItemContainer, StyledLabelItem } from "../GeneralCSS"
 import { RecentRepoContainer, RecentRepoInfoContainer } from './RecentReposCSS'
 
-export default function RecentRepos({ userRepos }){
-    const repos = userRepos.repos.slice(0, 3).map(repo=>{
-        const dataInicial = new Date()
-        const dataFinal = new Date(repo.updated_at)
+const github_api_key = import.meta.env.VITE_GITHUB_API_KEY || import.meta.env.GITHUB_API_KEY
 
-        const diferencaEmMilissegundos = Math.abs(dataFinal - dataInicial);
-        const diferencaEmHoras = Math.floor(diferencaEmMilissegundos / (1000 * 60 * 60))
-        return {...repo, lastUpdate: diferencaEmHoras}
-    })
+export default function RecentRepos({ userRepos }){
+    const [repos, setRepos] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState('')
+
+    useEffect(()=>{
+        async function fetchData(){
+            setLoading(true)
+
+            const reposPromises = userRepos.repos.slice(0, 3).map(async(repo)=>{
+                try{
+                    // get repos commits
+                    const response = await axios.get(`https://api.github.com/repos/luciano655dev/${repo.name}/commits`, {
+                        headers: { Authorization: `Bearer ${github_api_key}` }
+                    })
+                    const totalCommits = response.data.length
+            
+                    // Pega a diferença em horas
+                    const dataInicial = new Date()
+                    const dataFinal = new Date(repo.updated_at)
+            
+                    const diferencaEmMilissegundos = Math.abs(dataFinal - dataInicial);
+                    const diferencaEmHoras = Math.floor(diferencaEmMilissegundos / (1000 * 60 * 60))
+            
+                    return {
+                        ...repo,
+                        lastUpdate: diferencaEmHoras,
+                        totalCommits
+                    }
+                }catch(error){
+                    console.log(error)
+                    setError(error.data.message)
+                    setLoading(false)
+                }
+            })
+
+            const repos = await Promise.all(reposPromises)
+            setRepos(repos)
+
+            setLoading(false)
+        }
+
+        fetchData()
+    }, [])
 
     const goTo = (url) => window.open(url, '_blank')
+
+    if(error) return <ItemContainer>
+        <StyledLabelItem>Error on Server...</StyledLabelItem>
+    </ItemContainer>
+    if(loading) return <></>
 
     return  <ItemContainer>
         <StyledLabelItem>
@@ -32,7 +76,7 @@ export default function RecentRepos({ userRepos }){
                     <h2>estrelas</h2>
                     </div>
                     <div>
-                    <h1>{repo.commits}</h1>
+                    <h1>{repo.totalCommits}</h1>
                     <h2>Commits</h2>
                     </div>
                     <div>

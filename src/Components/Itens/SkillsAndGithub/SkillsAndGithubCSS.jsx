@@ -90,11 +90,49 @@ export const GithubInfoContainer = styled.div`
         }
 
         h2{
+            display: flex;
+            flex-direction: row;
             font-size: 1em;
             font-weight: 100;
             margin: 0;
             margin-left: 1.1em;
             color: gray;
+
+            a {
+                color: white;
+            }
+
+            p {
+                color: white;
+                text-decoration: underline;
+                margin: 0;
+                margin-left: 0.3em;
+
+                transition: 0.3s;
+                cursor: pointer;
+                &:hover {
+                    color: lightgray;
+                }
+            }
+
+            div {
+                display: none;
+                position: absolute;
+
+                width: 30vw;
+                padding: 1em;
+                transform: translateY(1.2em) translateX(-5em);
+
+                border-radius: 1em;
+                background-color: rgb(0, 0, 0);
+                color: lightgray;
+
+                z-index: 100;
+            }
+
+            &:hover div {
+                display: block;
+            }
 
             @media (max-width: 768px) {
                 font-size: 2vw;
