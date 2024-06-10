@@ -1,3 +1,4 @@
+
 import {
   GlobalStyle,
   StyledBody,
@@ -22,7 +23,7 @@ import AllRepos from './Components/AllRepos/AllRepos'
 
 import Footer from './Components/Footer/Footer'
 
-const github_api_key = `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`
+const github_api_key = import.meta.env.VITE_GITHUB_API_KEY
 /*
   I am using this key ONLY to increase the number of requests on the website
   It doesn't give access to ANYTHING on my profile, I ask you not to use it
