@@ -23,12 +23,6 @@ import AllRepos from './Components/AllRepos/AllRepos'
 
 import Footer from './Components/Footer/Footer'
 
-const github_api_key = import.meta.env.VITE_GITHUB_API_KEY
-/*
-  I am using this key ONLY to increase the number of requests on the website
-  It doesn't give access to ANYTHING on my profile, I ask you not to use it
-*/
-
 export default function App() {
   const backgroundSrc = 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1502190/ab689603a427930cb69d5ad4db5c255ccd334133.mp4'
 
@@ -43,21 +37,17 @@ export default function App() {
       setLoading(true)
       try {
         // Busca as informações do usuário
-        const userResponse = await axios.get('https://api.github.com/users/luciano655dev', {
-          headers: { Authorization: `Bearer ${github_api_key}` }
-        })
+        const userResponse = await axios.get('https://api.github.com/users/luciano655dev')
         setUserInfo(userResponse.data)
 
         // Busca os repositórios públicos do usuário
         const reposResponse = await axios.get('https://api.github.com/users/luciano655dev/repos?sort=updated', {
-          headers: { Authorization: `Bearer ${github_api_key}` },
           params: { type: 'public' } // Adiciona o parâmetro type=public
         })
         const repos = reposResponse.data
 
         // Busca os commits de todos os repositórios do usuário
         const commitsResponse = await axios.get(`https://api.github.com/search/commits?q=${encodeURIComponent(`author:${'luciano655dev'} is:merge`)}`, {
-          Authorization: `token ${github_api_key}`,
           Accept: 'application/vnd.github.cloak-preview'
         })
 
@@ -97,7 +87,7 @@ export default function App() {
   }, [window.location.href])
 
   if(loading) return <Loader />
-  if(error) return <h1>Error :(</h1>
+  if(error) return <h1>Error with Github API, please try again later</h1>
 
   return <div>
         <StyledBody>

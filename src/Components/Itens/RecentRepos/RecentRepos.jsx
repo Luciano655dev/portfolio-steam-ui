@@ -3,8 +3,6 @@ import axios from 'axios'
 import { ItemContainer, StyledLabelItem } from "../GeneralCSS"
 import { RecentRepoContainer, RecentRepoInfoContainer } from './RecentReposCSS'
 
-const github_api_key = import.meta.env.VITE_GITHUB_API_KEY
-
 export default function RecentRepos({ userRepos }){
     const [repos, setRepos] = useState([])
     const [loading, setLoading] = useState(true)
@@ -17,9 +15,7 @@ export default function RecentRepos({ userRepos }){
             const reposPromises = userRepos.repos.slice(0, 3).map(async(repo)=>{
                 try{
                     // get repos commits
-                    const response = await axios.get(`https://api.github.com/repos/luciano655dev/${repo.name}/commits`, {
-                        headers: { Authorization: `Bearer ${github_api_key}` }
-                    })
+                    const response = await axios.get(`https://api.github.com/repos/luciano655dev/${repo.name}/commits`)
                     const totalCommits = response.data.length
             
                     // Pega a diferença em horas
