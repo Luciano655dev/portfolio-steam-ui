@@ -22,7 +22,11 @@ import AllRepos from './Components/AllRepos/AllRepos'
 
 import Footer from './Components/Footer/Footer'
 
-const github_api_key = import.meta.env.VITE_GITHUB_API_KEY || import.meta.env.GITHUB_API_KEY
+const github_api_key = `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`
+/*
+  I am using this key ONLY to increase the number of requests on the website
+  It doesn't give access to ANYTHING on my profile, I ask you not to use it
+*/
 
 export default function App() {
   const backgroundSrc = 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1502190/ab689603a427930cb69d5ad4db5c255ccd334133.mp4'
