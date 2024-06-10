@@ -19,7 +19,7 @@ export default function SkillsAndGithub({ userRepos, userInfo }){
 
     return <ItemContainer>
         <StyledLabelItem>
-            <h1>Minhas Skills e GitHub</h1>
+            <h1>My Skills and Github</h1>
         </StyledLabelItem>
 
         <SocialMediaContainer>
@@ -59,11 +59,11 @@ export default function SkillsAndGithub({ userRepos, userInfo }){
                     </div>
                     <div>
                         <h1>{repos.length}</h1>
-                        <h2>Repositorios</h2>
+                        <h2>Repositories</h2>
                     </div>
                     <div>
                         <h1>{totalStars}</h1>
-                        <h2>Estrelinhas</h2>
+                        <h2>Little stars</h2>
                     </div>
                     <div>
                         <h1>{totalCommits}</h1>
@@ -71,12 +71,12 @@ export default function SkillsAndGithub({ userRepos, userInfo }){
                     </div>
                     <div>
                         <h1>{language.percentage}</h1>
-                        <h2>{language.name}, <p>que?</p>
+                        <h2>{language.name}, <p>what?</p>
                             <div>
                                 <span>
-                                    Esta é a porcentágem da linguagem de programação mais usada
-                                    nos meus repositórios do GitHub, desculpe se ficou confuso :0 <br></br>
-                                    <a href="">Veja mais no meu post do Twitter</a>
+                                    This is the percentage of the most used programming language in my GitHub repositories.
+                                    Sorry if it's confusing
+                                    <br></br>
                                 </span>
                             </div>
                         </h2>

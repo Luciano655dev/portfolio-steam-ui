@@ -28,8 +28,8 @@ export default function Level(){
         </BadgeContainer>
 
         <LeftButtonsContainer>
-            <button onClick={()=>goTo('https://github.com/luciano655dev')}>Siga-me no GitHub!</button>
-            <button onClick={()=>goTo('https://twitter.com/luciano655dev')}>E Twtter</button>
+            <button onClick={()=>goTo('https://github.com/luciano655dev')}>Follow me on GitHub!</button>
+            <button onClick={()=>goTo('https://twitter.com/luciano655dev')}>and Twtter</button>
         </LeftButtonsContainer>
   </LevelContainer>
 }

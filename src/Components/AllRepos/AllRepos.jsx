@@ -5,9 +5,9 @@ export default function AllRepos({ userRepos }){
 
   return <RightContentContainer>
     <RightContentTexts>
-      <h1>Codando</h1>
+      <h1>Coding</h1>
 
-      <h2>Outros repositórios:</h2>
+      <h2>Other projects:</h2>
 
       {
         repos.map(repo=>

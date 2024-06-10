@@ -8,7 +8,7 @@ export default function SocialMedias(){
 
     return <ItemContainer>
         <StyledLabelItem>
-            <h1>Minhas Redes Sociais</h1>
+            <h1>My Social Medias</h1>
         </StyledLabelItem>
 
         <StyledSkillsImages>
@@ -38,7 +38,7 @@ export default function SocialMedias(){
 
                 <div className="textContainer">
                     <h1>5</h1>
-                    <h2>Formas de me conhecer</h2>
+                    <h2>Ways to contact and know me</h2>
                 </div>
             </div>
         </StyledSkillsImages>

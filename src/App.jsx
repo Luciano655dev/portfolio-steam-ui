@@ -22,7 +22,7 @@ import AllRepos from './Components/AllRepos/AllRepos'
 
 import Footer from './Components/Footer/Footer'
 
-const github_api_key = `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`
+const github_api_key = `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`
 /*
   I am using this key ONLY to increase the number of requests on the website
   It doesn't give access to ANYTHING on my profile, I ask you not to use it
@@ -96,7 +96,7 @@ export default function App() {
   }, [window.location.href])
 
   if(loading) return <Loader />
-  if(error) return <h1>Error :0</h1>
+  if(error) return <h1>Error :(</h1>
 
   return <div>
         <StyledBody>

@@ -18,7 +18,7 @@ export default function UserProfile({ userInfo }){
         <div>
             <h1>{name}</h1>
             <div>
-                <img src='https://community.cloudflare.steamstatic.com/public/images/countryflags/br.gif'></img>
+                <img src='https://community.cloudflare.steamstatic.com/public/images/countryflags/us.gif'></img>
                 <label>{location}</label>
             </div>
 

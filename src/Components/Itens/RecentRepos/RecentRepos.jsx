@@ -3,7 +3,7 @@ import axios from 'axios'
 import { ItemContainer, StyledLabelItem } from "../GeneralCSS"
 import { RecentRepoContainer, RecentRepoInfoContainer } from './RecentReposCSS'
 
-const github_api_key = import.meta.env.VITE_GITHUB_API_KEY || import.meta.env.GITHUB_API_KEY
+const github_api_key = `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`
 
 export default function RecentRepos({ userRepos }){
     const [repos, setRepos] = useState([])
@@ -59,7 +59,7 @@ export default function RecentRepos({ userRepos }){
 
     return  <ItemContainer>
         <StyledLabelItem>
-            <h1>Repositórios Recentes</h1>
+            <h1>Recent Projects</h1>
         </StyledLabelItem>
         
         {
@@ -73,7 +73,7 @@ export default function RecentRepos({ userRepos }){
                 <RecentRepoInfoContainer>
                     <div>
                     <h1>{repo.stargazers_count}</h1>
-                    <h2>estrelas</h2>
+                    <h2>Stars</h2>
                     </div>
                     <div>
                     <h1>{repo.totalCommits}</h1>
