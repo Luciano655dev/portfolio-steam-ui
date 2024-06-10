@@ -3,7 +3,7 @@ import axios from 'axios'
 import { ItemContainer, StyledLabelItem } from "../GeneralCSS"
 import { RecentRepoContainer, RecentRepoInfoContainer } from './RecentReposCSS'
 
-const github_api_key = `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`
+const github_api_key = `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`
 
 export default function RecentRepos({ userRepos }){
     const [repos, setRepos] = useState([])

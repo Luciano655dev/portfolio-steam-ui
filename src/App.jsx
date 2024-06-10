@@ -22,7 +22,7 @@ import AllRepos from './Components/AllRepos/AllRepos'
 
 import Footer from './Components/Footer/Footer'
 
-const github_api_key = `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`
+const github_api_key = `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`
 /*
   I am using this key ONLY to increase the number of requests on the website
   It doesn't give access to ANYTHING on my profile, I ask you not to use it
