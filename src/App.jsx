@@ -96,7 +96,7 @@ export default function App() {
   }, [window.location.href])
 
   if(loading) return <Loader />
-  if(error) return <h1>Error :(</h1>
+  if(error) return <h1>Error :0</h1>
 
   return <div>
         <StyledBody>
