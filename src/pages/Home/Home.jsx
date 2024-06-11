@@ -1,31 +1,24 @@
-
 import {
-  GlobalStyle,
   StyledBody,
-  StyledBackground,
   MainContainer,
   LeftSide,
   RightSide,
-} from './AppCSS'
+} from './HomeCSS'
 import Loader from './loadingContainerCSS'
 
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import Navbar from './Components/Navbar/Navbar'
-import UserProfile from './Components/UserProfile/UserProfile'
-import WhoAmI from './Components/Itens/WhoAmI/WhoAmI'
-import SkillsAndGithub from './Components/Itens/SkillsAndGithub/SkillsAndGithub'
-import SocialMedias from './Components/Itens/SocialMedias/SocialMedias'
-import RecentRepos from './Components/Itens/RecentRepos/RecentRepos'
+import UserProfile from '../../Components/UserProfile/UserProfile'
+import WhoAmI from '../../Components/Itens/WhoAmI/WhoAmI'
+import SkillsAndGithub from '../../Components/Itens/SkillsAndGithub/SkillsAndGithub'
+import SocialMedias from '../../Components/Itens/SocialMedias/SocialMedias'
+import RecentRepos from '../../Components/Itens/RecentRepos/RecentRepos'
 
-import Level from './Components/Level/Level'
-import AllRepos from './Components/AllRepos/AllRepos'
+import Level from '../../Components/Level/Level'
+import AllRepos from '../../Components/AllRepos/AllRepos'
 
-import Footer from './Components/Footer/Footer'
-
-export default function App() {
-  const backgroundSrc = 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1502190/ab689603a427930cb69d5ad4db5c255ccd334133.mp4'
+export default function Home() {
 
   const [userInfo, setUserInfo] = useState({})
   const [userRepos, setUserRepos] = useState({})
@@ -90,42 +83,32 @@ export default function App() {
   if(loading) return <Loader />
   if(error) return <h1>Error with Github API, please try again later</h1>
 
-  return <div style={{ margin: 0 }}>
-    <Navbar></Navbar>
-    <StyledBody>
-      <GlobalStyle></GlobalStyle>
-      <StyledBackground autoPlay muted loop src={backgroundSrc} type="video/mp4" />
+  return <MainContainer>
+    <LeftSide>
+      <UserProfile
+        userInfo={userInfo}
+      ></UserProfile>
 
-      <MainContainer>
-        <LeftSide>
-          <UserProfile
-            userInfo={userInfo}
-          ></UserProfile>
+      <WhoAmI></WhoAmI>
 
-          <WhoAmI></WhoAmI>
+      <SkillsAndGithub
+        userInfo={userInfo}
+        userRepos={userRepos}
+      ></SkillsAndGithub>
 
-          <SkillsAndGithub
-            userInfo={userInfo}
-            userRepos={userRepos}
-          ></SkillsAndGithub>
+      <SocialMedias></SocialMedias>
 
-          <SocialMedias></SocialMedias>
+      <RecentRepos
+        userRepos={userRepos}
+      ></RecentRepos>
+    </LeftSide>
 
-          <RecentRepos
-            userRepos={userRepos}
-          ></RecentRepos>
-        </LeftSide>
+    <RightSide>
+      <Level></Level>
 
-      <RightSide>
-        <Level></Level>
-
-        <AllRepos
-          userRepos={userRepos}
-        ></AllRepos>
-      </RightSide>
-      </MainContainer>
-    </StyledBody>
-
-    <Footer></Footer>
-  </div>
+      <AllRepos
+        userRepos={userRepos}
+      ></AllRepos>
+    </RightSide>
+  </MainContainer>
 }

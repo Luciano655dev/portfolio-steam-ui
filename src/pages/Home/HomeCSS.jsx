@@ -25,6 +25,7 @@ export const StyledBackground = styled.video`
     position: fixed;
     right: 0;
     bottom: 0;
+    transform: translateY(5em);
     min-width: 100%;
     min-height: 100%;
     width: auto;

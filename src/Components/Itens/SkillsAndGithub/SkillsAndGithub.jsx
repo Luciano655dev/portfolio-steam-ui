@@ -63,7 +63,7 @@ export default function SkillsAndGithub({ userRepos, userInfo }){
                     </div>
                     <div>
                         <h1>{totalStars}</h1>
-                        <h2>Little stars</h2>
+                        <h2>Repo stars</h2>
                     </div>
                     <div>
                         <h1>{totalCommits}</h1>
